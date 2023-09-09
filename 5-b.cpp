@@ -1,49 +1,56 @@
-#include <bits/stdc++.h>
+#include <bits/stdc++.c>
 using namespace std;
 
-int minCoinsRequired(const vector<int>& coins, int amount, vector<int>& usedCoins) {
-    int n = coins.size();
-    vector<int> dp(amount + 1, INT_MAX);
-    dp[0] = 0;
+struct Item {
+    int weight;
+    int profit;
+};
 
-    for (int i = 1; i <= amount; ++i) {
-        for (int j = 0; j < n; ++j) {
-            if (i >= coins[j] && dp[i - coins[j]] != INT_MAX && dp[i - coins[j]] + 1 < dp[i]) {
-                dp[i] = 1 + dp[i - coins[j]];
-            }
+bool compare(Item a, Item b) {
+    double ratio1 = (double)a.profit / a.weight;
+    double ratio2 = (double)b.profit / b.weight;
+    return ratio1 > ratio2;
+}
+
+double knapsackGreedy(int totalWeight, vector<Item>& items) {
+    sort(items.begin(), items.end(), compare);
+
+    double maxProfit = 0.0;
+    int currentWeight = 0;
+
+    for (const Item& item : items) {
+        if (currentWeight + item.weight <= totalWeight) {
+            currentWeight += item.weight;
+            maxProfit += item.profit;
+        } else {
+            int remainingWeight = totalWeight - currentWeight;
+            maxProfit += (double)item.profit / item.weight * remainingWeight;
+            break;
         }
     }
 
-    int currentAmount = amount;
-    while (currentAmount > 0) {
-        for (int j = 0; j < n; ++j) {
-            if (currentAmount >= coins[j] && dp[currentAmount] == 1 + dp[currentAmount - coins[j]]) {
-                usedCoins.push_back(coins[j]);
-                currentAmount -= coins[j];
-                break;
-            }
-        }
-    }
-
-    reverse(usedCoins.begin(), usedCoins.end());
-    return dp[amount];
+    return maxProfit;
 }
 
 int main() {
-    vector<int> coins = {1, 2, 5, 10, 20, 50, 100, 200, 500, 2000}; 
-    int amount; 
-    cout<<"Enter a value of N: ";
-    cin>>amount;
+    int n;
+    cout << "Enter the number of items: ";
+    cin >> n;
 
-    vector<int> usedCoins;
-    int minCoins = minCoinsRequired(coins, amount, usedCoins);
-    
-    cout << "Minimum number of coins needed: " << minCoins << endl;
-    cout << "Coins used: ";
-    for (int coin : usedCoins) {
-        cout << coin << " ";
+    vector<Item> items(n);
+
+    for (int i = 0; i < n; ++i) {
+        cout << "Enter weight and profit for item " << i + 1 << ": ";
+        cin >> items[i].weight >> items[i].profit;
     }
-    cout << endl;
+
+    int totalWeight;
+    cout << "Enter the total weight capacity of the knapsack: ";
+    cin >> totalWeight;
+
+    double maxProfit = knapsackGreedy(totalWeight, items);
+
+    cout << "Maximum profit that can be obtained: " << maxProfit << endl;
 
     return 0;
 }

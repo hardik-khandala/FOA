@@ -8,3 +8,5 @@
 |02|Some Basic Algorithms: <br> Write an algorithm and find the efficiency of the same for following problems: <br> a. Finding Factorial - Iterative Approach <br> b. Finding Factorial - Recursive Approach <br> c. Fibonacci Series - Iterative Approach <br> d. fibonacci Series - Recursive Approach |
 |03|Basic Sorting and Searching Techniques: <br> Design an algorithm and implement a program for: <br> a. Insertion Sort, <br> b. Bubble Sort, <br> c. Selection Sort, <br> d. Linear Search |
 |04|Divide and Conquer Approach:<br> Design an algorithm and implement a program for: <br> a. Merge Sort <br> b. Quick Sort <br> c. Binary Search |
+|05|Greedy Approach:<br> Design an algorithm and implement a program to solve:<br> a. Making Change Problem<br> b. Knapsack Problem|
+|06|Dynamic Programming: <br> Design an algorithm and implement a program to solve: <br> a. Knapsack Problem <br> b. Longest Common Subsequence Problem <br> c. Finding Optimal Matrix Chain Order Problem |

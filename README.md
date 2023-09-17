@@ -10,3 +10,7 @@
 |04|Divide and Conquer Approach:<br> Design an algorithm and implement a program for: <br> a. Merge Sort <br> b. Quick Sort <br> c. Binary Search |
 |05|Greedy Approach:<br> Design an algorithm and implement a program to solve:<br> a. Making Change Problem<br> b. Knapsack Problem|
 |06|Dynamic Programming: <br> Design an algorithm and implement a program to solve: <br> a. Knapsack Problem <br> b. Longest Common Subsequence Problem <br> c. Finding Optimal Matrix Chain Order Problem |
+|07|Graph Algorithms: <br> Design an algorithm and write a program to implement: <br> a. Depth First Search of a graph <br> b. Breadth First Search of a graph |
+|08|Graph Algorithms: <br> Design an algorithm and implement a program for: <br> a. Kruskal’s method of finding Minimum Spanning Tree <br> b. Prim’s method of finding Minimum Spanning Tree |
+|09|Design an algorithm and implement a program for String matching with finite automata.|
+
